@@ -1,0 +1,17 @@
+clc;
+clear all;
+close all;
+t=-3:0.01:8;
+x=(t>=-1 & t<=1);
+subplot(311);
+plot(t,x);
+h1=(t>=1 & t<=3);
+h2=(t>3 & t<=4);
+h=h1+(2*h2);
+subplot(312);
+plot(t,h);
+y=convn(x,h);
+y=y/100;
+t1=2*min(t):0.01:2*max(t);
+subplot(313);
+plot(t1,y);

@@ -1,0 +1,17 @@
+clc;clear all;close  all;
+th=-2:0.01:2;
+h=(th>=-2);
+tx=0:0.01:5;
+x=tx+1;
+t=min(tx)+min(th):0.01:max(tx)+max(th);
+y=conv(x,h);
+subplot(221);
+plot(tx,x);
+subplot(222);
+plot(th,h);
+subplot(223);
+plot(t,y);
+z=deconv(y,h);
+subplot(224);
+tz=(min(t)-min(th)):0.01:(max(t)-max(th));
+plot(tz,z);
